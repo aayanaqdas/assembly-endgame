@@ -108,7 +108,7 @@ section.game-status > p {
   gap: 8px;
 }
 
-.keyboard-container .keyboard-key {
+.keyboard-container > button {
   width: 35px;
   height: 35px;
   border-radius: 3px;
@@ -121,6 +121,14 @@ section.game-status > p {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.keyboard-container > button.right-letter{
+    background-color: #10A95B;
+}
+
+.keyboard-container > button.wrong-letter{
+    background-color: #EC5D49;
 }
 
 button.new-game {
