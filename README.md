@@ -1,12 +1,48 @@
-# React + Vite
+## Assembly Endgame: Hangman Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Assembly Endgame**, a fun twist on the classic Hangman game! Your mission: guess the secret word in under 8 attempts to keep the programming world safe from Assembly!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🕹️ How to Play
 
-## Expanding the ESLint configuration
+1. A random word is selected.
+2. Guess one letter at a time.
+3. You have 8 attempts to guess the word correctly.
+4. Each wrong guess brings you closer to Assembly taking over!
+5. Win by guessing the word before you run out of attempts.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 🚀 Tech Stack
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [react-confetti](https://www.npmjs.com/package/react-confetti) – celebratory confetti effect when you win
+- [clsx](https://www.npmjs.com/package/clsx) – utility for conditionally joining classNames
+
+---
+
+### 🎯 Purpose
+
+This project was created as part of my journey to learn ReactJS following the Scrimba React course. It demonstrates basic React concepts, state management, and simple game logic.
+
+---
+
+### 📦 Getting Started
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/aayanaqdas/assembly-endgame.git
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+4. Open [http://localhost:5173](http://localhost:5173) in your browser to play!
+
+---

@@ -16,7 +16,6 @@ export default function AssemblyEndgame() {
 
   const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
   const isLastGuessWrong = lastGuessedLetter && !currWord.includes(lastGuessedLetter);
-  const missingLetters = currWord.split("").filter((letter) => !guessedLetters.includes(letter));
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
