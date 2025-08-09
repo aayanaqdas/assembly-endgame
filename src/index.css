@@ -131,6 +131,14 @@ span.chip.lost::before {
   text-transform: uppercase;
 }
 
+.word-container .letter.missing{
+    color: #EC5D49;
+}
+
+.word-container .letter.won{
+    color: #10a95b;
+}
+
 .keyboard-container {
   display: flex;
   flex-wrap: wrap;

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { clsx } from "clsx";
 import { languages } from "./languages";
-import { getFarewellText } from "./utils";
+import { getFarewellText, getWord } from "./utils";
 
 export default function AssemblyEndgame() {
-  const [currWord, setCurrWord] = useState("react");
+  const [currWord, setCurrWord] = useState(() => getWord());
   const [guessedLetters, setGuessedLetters] = useState([]);
 
   const wrongGuessCount = guessedLetters.filter((letter) => !currWord.includes(letter)).length;
@@ -15,6 +15,7 @@ export default function AssemblyEndgame() {
 
   const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
   const isLastGuessWrong = lastGuessedLetter && !currWord.includes(lastGuessedLetter);
+  const missingLetters = currWord.split("").filter((letter) => !guessedLetters.includes(letter));
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
@@ -32,13 +33,19 @@ export default function AssemblyEndgame() {
     );
   });
 
-  const word = currWord.split("").map((letter, index) => {
-    return (
-      <span className="letter" key={index}>
-        {guessedLetters.includes(letter) ? letter : ""}
-      </span>
-    );
-  });
+    const word = currWord.split("").map((letter, index) => {
+        const shouldRevealLetter = isGameLost || guessedLetters.includes(letter)
+        const letterClassName = clsx(
+            "letter", 
+            isGameLost && !guessedLetters.includes(letter) && "missing",
+            isGameWon && "won"
+        )
+        return (
+            <span className={letterClassName} key={index}>
+                {shouldRevealLetter ? letter.toUpperCase() : ""}
+            </span>
+        )
+    })
 
   const keyboard = alphabet.split("").map((letter) => {
     const isGuessed = guessedLetters.includes(letter);
@@ -97,6 +104,13 @@ export default function AssemblyEndgame() {
 
     return null;
   }
+
+  function newGame() {
+    if (isGameOver) {
+      setGuessedLetters([]);
+      setCurrWord(getWord());
+    }
+  }
   return (
     <main>
       <header>
@@ -107,7 +121,11 @@ export default function AssemblyEndgame() {
       <section className="language-chips">{languageElements}</section>
       <section className="word-container">{word}</section>
       <section className="keyboard-container">{keyboard}</section>
-      {isGameOver && <button className="new-game">New Game</button>}
+      {isGameOver && (
+        <button className="new-game" onClick={newGame}>
+          New Game
+        </button>
+      )}
     </main>
   );
 }
